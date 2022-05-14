@@ -49,17 +49,17 @@ def preprocess_inputs(df):
     
     return X_train, X_test, y_train, y_test
     X_train, X_test, y_train, y_test = preprocess_inputs(data)
-X_train
-y_train.value_counts()
-X_train.shape
-inputs = tf.keras.Input(shape=(14804,))
-#input->word  output->dense space we choose 64
-embedding = tf.keras.layers.Embedding(
+    X_train
+    y_train.value_counts()
+    X_train.shape
+    inputs = tf.keras.Input(shape=(14804,))
+    #input->word  output->dense space we choose 64
+    embedding = tf.keras.layers.Embedding(
     input_dim=30000,
     output_dim=64
-)(inputs)
-#take embeddings and flatting into singel vector
-flatten = tf.keras.layers.Flatten()(embedding)
+    )(inputs)
+    #take embeddings and flatting into singel vector
+    flatten = tf.keras.layers.Flatten()(embedding)
 
 outputs = tf.keras.layers.Dense(1, activation='sigmoid')(flatten)
 
